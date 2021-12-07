@@ -1,4 +1,3 @@
----
 - name: Start HANA
   ansible.builtin.script: /usr/sap/HD1/HDB00/exe/python_support/start_stop_HANA.py -hu
   args:
