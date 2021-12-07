@@ -4,7 +4,7 @@
     executable: python
   tags: start_hana
   - name: Run a script to stop HANA
-  ansible.builtin.script: /usr/sap/HD1/HDB00/exe/python_support/start_stop_HANA.py -hu
+  ansible.builtin.script: /usr/sap/HD1/HDB00/exe/python_support/start_stop_HANA.py -hd
   args:
     executable: python
   tags: stop_hana
