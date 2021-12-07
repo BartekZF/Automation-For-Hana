@@ -3,7 +3,11 @@
   hosts: all
   tasks:
     - name: Start HANA - Copy file
-    copy: src=home/ubuntu/StartStopHANA.py dest=/opt/StartStopHANA.py owner=awx groups=root chmod=775
+    copy: 
+    src: home/ubuntu/StartStopHANA.py 
+    dest: /opt/StartStopHANA.py 
+    owner: awx groups=root 
+    chmod: 775
     tags: start_hana
     - name: Start HANA - Copy file
     command: /opt/StartStopHANA.py
