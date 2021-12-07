@@ -4,7 +4,7 @@
   tasks:
     - name: Start HANA
       become: yes
-      ansible.builtin.script: /tmp/python/StartStopHANA.py -hu
+      ansible.builtin.script: StartStopHANA.py -hu
       register: out
       args:
         executable: python
