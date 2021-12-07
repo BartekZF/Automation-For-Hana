@@ -2,18 +2,17 @@
 - name: START HANA DB
   hosts: all
   tasks:
-    - name: Start HANA
-      become: yes
-      ansible.builtin.script: /home/ubuntu/StartStopHANA.py -hu
-      register: out
-      args:
-        executable: python
-      tags: start_hana
+    - name: Start HANA - Copy file
+    copy: src=home/ubuntu/StartStopHANA.py dest=/opt/StartStopHANA.py owner=awx groups=root chmod=775
+    tags: start_hana
+    - name: Start HANA - Copy file
+    command: /opt/StartStopHANA.py
+    tags: start_hana
 
-    - name: STOP HANA
-      become: yes
-      ansible.builtin.script: /usr/sap/HD1/HDB00/exe/python_support/start_stop_HANA.py -hd
-      register: out
-      args:
-        executable: python
-      tags: stop_hana
+    # - name: STOP HANA
+    #   become: yes
+    #   ansible.builtin.script: /usr/sap/HD1/HDB00/exe/python_support/start_stop_HANA.py -hd
+    #   register: out
+    #   args:
+    #     executable: python
+    #   tags: stop_hana
