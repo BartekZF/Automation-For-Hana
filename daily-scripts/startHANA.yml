@@ -1,6 +1,19 @@
-- name: Start HANA
-  ansible.builtin.script: /usr/sap/HD1/HDB00/exe/python_support/start_stop_HANA.py -hu
-  args:
-    executable: python
-  tags:
-    - start_hana
+---
+- name: START HANA DB
+  hosts: all
+  tasks:
+    - name: Start HANA
+      become: yes
+      ansible.builtin.script: /usr/sap/HD1/HDB00/exe/python_support/start_stop_HANA.py -hu
+      register: out
+      args:
+        executable: python
+      tags: start_hana
+
+    - name: STOP HANA
+      become: yes
+      ansible.builtin.script: /usr/sap/HD1/HDB00/exe/python_support/start_stop_HANA.py -hd
+      register: out
+      args:
+        executable: python
+      tags: stop_hana
