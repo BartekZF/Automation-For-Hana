@@ -4,6 +4,7 @@
   tasks:
     - name: Start HANA - Copy file
       become: true
+      become_user: root
       shell: /usr/sap/HD1/HDB00/exe/python_support/start_stop_HANA.py -hu
       tags: start_hana
 
