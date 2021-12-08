@@ -3,16 +3,9 @@
   hosts: all
   tasks:
     - name: Start HANA - Copy file
-      copy:
-        src: home/ubuntu/StartStopHANA.py
-        dest: /opt/StartStopHANA.py
-        owner: awx
-        groups: root
-        mode: 0775
-      tags: start_hana
-
-    - name: Start HANA - Copy file
-      command: /opt/StartStopHANA.py
+      become: true
+      become_user: hd1adm
+      command: python /usr/sap/HD1/HDB00/exe/python_support/start_stop_HANA.py
       tags: start_hana
 
     - name: STOP HANA
