@@ -17,4 +17,4 @@
       tags: stop_hana
     
     
-    -debug: var=out.stdout_lines
+    -debug: var=status.stdout_lines
