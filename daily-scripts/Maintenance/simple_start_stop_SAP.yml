@@ -15,5 +15,3 @@
       shell: /usr/sap/HD1/HDB00/exe/python_support/start_stop_HANA.py -hd
       register: status
       tags: stop_hana
-
-    - debug: var=status.stdout_lines
