@@ -5,7 +5,7 @@
     - name: Start HANA - Copy file
       become: true
       become_user: hd1adm
-      command: python /usr/sap/HD1/HDB00/exe/python_support/start_stop_HANA.py
+      shell: python /usr/sap/HD1/HDB00/exe/python_support/start_stop_HANA.py
       tags: start_hana
 
     - name: STOP HANA
