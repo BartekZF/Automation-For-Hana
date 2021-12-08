@@ -6,9 +6,15 @@
       become: true
       become_user: root
       shell: /usr/sap/HD1/HDB00/exe/python_support/start_stop_HANA.py -hu
+      register: status
       tags: start_hana
 
     - name: STOP HANA
       become: yes
+      become_user: root
       shell: /usr/sap/HD1/HDB00/exe/python_support/start_stop_HANA.py -hd
+      register: status
       tags: stop_hana
+    
+    
+    -debug: var=out.stdout_lines
