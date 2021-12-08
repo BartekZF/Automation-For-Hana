@@ -4,14 +4,10 @@
   tasks:
     - name: Start HANA - Copy file
       become: true
-      become_user: hd1adm
-      shell: python /usr/sap/HD1/HDB00/exe/python_support/start_stop_HANA.py
+      shell: /usr/sap/HD1/HDB00/exe/python_support/start_stop_HANA.py -hu
       tags: start_hana
 
     - name: STOP HANA
       become: yes
-      ansible.builtin.script: /usr/sap/HD1/HDB00/exe/python_support/start_stop_HANA.py -hd
-      register: out
-      args:
-        executable: python
+      shell: /usr/sap/HD1/HDB00/exe/python_support/start_stop_HANA.py -hd
       tags: stop_hana
