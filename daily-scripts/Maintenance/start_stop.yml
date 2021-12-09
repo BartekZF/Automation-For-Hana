@@ -16,5 +16,5 @@
       become: true
       become_user: root
       shell: $PATH
-      when: path.stat.exists
+      when: path.stdout.exists
 
