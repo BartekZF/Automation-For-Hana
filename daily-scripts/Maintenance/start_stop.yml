@@ -9,8 +9,9 @@
     - name: CHECK IF PYTHON SCRIPT EXIST ON SYSTEM
       shell: find /root -name start_stop_HANA.py
       register: path
+      debug: 
+      msg: "{{path}}"
 ### 2A. IF NOT -  ###
 ### 2B. IF YES -  ###
-  - debug: 
-      msg: "{{path}}"
+    
 ### 3. SHOW STATUS OF SAP ###
