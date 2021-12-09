@@ -10,7 +10,7 @@
       shell: find /root -name start_stop_HANA.py
       register: path
       debug: 
-      msg: "{{path}}"
+      var: path
 ### 2A. IF NOT -  ###
 ### 2B. IF YES -  ###
     
