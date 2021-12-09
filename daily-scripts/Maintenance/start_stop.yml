@@ -11,7 +11,6 @@
       register: path
 ### 2A. IF NOT -  ###
 ### 2B. IF YES -  ###
-    - name: Testing 
-      debug: 
+    - debug: 
       mgs: "{{path}}"
 ### 3. SHOW STATUS OF SAP ###
