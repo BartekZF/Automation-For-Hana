@@ -16,5 +16,5 @@
       become: true
       become_user: root
       shell: $PATH
-      when: path.stdout.exists
+      when: path.stdout is defined
 
