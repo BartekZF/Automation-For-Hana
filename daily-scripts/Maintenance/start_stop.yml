@@ -12,5 +12,10 @@
     - name: Debug
       debug: msg={{ path }}
 
-    
+    - name: Start HANA 
+      become: true
+      become_user: root
+      shell: path.stdout
+      when: path.stat.exists
+      tags: start_hana  
 
