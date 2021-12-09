@@ -1,0 +1,17 @@
+### 1. CONNECT TO ALL HOSTS ###
+---
+- name: START HANA DB
+  hosts: all
+  become: true
+  become_user: root
+  tasks:  
+### 2. CHECK IF PYTHON SCRIPT EXIST ON SYSTEM ###
+    - name: CHECK IF PYTHON SCRIPT EXIST ON SYSTEM
+      shell: find /root -name start_stop_HANA.py
+      register: path
+### 2A. IF NOT -  ###
+### 2B. IF YES -  ###
+    - name: Testing 
+      debug: 
+      mgs: {{path}}
+### 3. SHOW STATUS OF SAP ###
