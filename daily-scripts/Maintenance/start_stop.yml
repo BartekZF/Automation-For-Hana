@@ -6,7 +6,7 @@
     - name: CHECK IF PYTHON SCRIPT EXIST ON SYSTEM
       become: true
       become_user: root
-      shell: find /root -name start_stop_HANA.py
+      shell: find /root -name start_stop_HANA.py && PATH=$(find /root -name start_stop_HANA.py)
       register: path
 
     - name: Debug
@@ -15,6 +15,6 @@
     - name: Start HANA 
       become: true
       become_user: root
-      shell: {{ path.stdout }}
+      shell: $PATH
       when: path.stat.exists
 
