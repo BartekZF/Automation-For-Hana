@@ -13,5 +13,5 @@
 ### 2B. IF YES -  ###
     - name: Testing 
       debug: 
-      mgs: {{path}}
+      mgs: "{{path}}"
 ### 3. SHOW STATUS OF SAP ###
