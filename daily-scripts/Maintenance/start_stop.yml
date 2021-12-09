@@ -11,6 +11,6 @@
       register: path
 ### 2A. IF NOT -  ###
 ### 2B. IF YES -  ###
-    - debug: 
+  - debug: 
       msg: "{{path}}"
 ### 3. SHOW STATUS OF SAP ###
