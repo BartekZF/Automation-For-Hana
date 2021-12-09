@@ -12,5 +12,5 @@
 ### 2A. IF NOT -  ###
 ### 2B. IF YES -  ###
     - debug: 
-      mgs: "{{path}}"
+      msg: "{{path}}"
 ### 3. SHOW STATUS OF SAP ###
