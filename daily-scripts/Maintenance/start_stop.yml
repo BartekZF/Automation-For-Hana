@@ -15,7 +15,6 @@
     - name: Start HANA 
       become: true
       become_user: root
-      shell: path.stdout
+      shell: {{ path.stdout }}
       when: path.stat.exists
-      tags: start_hana  
 
