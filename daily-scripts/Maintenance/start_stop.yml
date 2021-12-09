@@ -2,10 +2,10 @@
 ---
 - name: START HANA DB
   hosts: all
-  become: true
-  become_user: root
   tasks:  
     - name: CHECK IF PYTHON SCRIPT EXIST ON SYSTEM
+      become: true
+      become_user: root
       shell: find /root -name start_stop_HANA.py
       register: path
     - debug: 
