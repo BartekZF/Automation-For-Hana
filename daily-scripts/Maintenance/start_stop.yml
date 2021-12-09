@@ -8,9 +8,9 @@
       become_user: root
       shell: find /root -name start_stop_HANA.py
       register: path
+
     - name: Debug
-      debug: 
-      var: path
+      debug: msg: "{{ path }}"
 
 
     
