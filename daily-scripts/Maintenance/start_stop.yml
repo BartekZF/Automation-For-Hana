@@ -10,7 +10,7 @@
       register: path
 
     - name: Debug
-      debug: var=path.stdout
+      debug: var=path
 
     
 
