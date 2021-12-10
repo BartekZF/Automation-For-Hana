@@ -5,5 +5,5 @@
   tasks:
     - name: Start HANA
       become: yes
-      ansible.builtin.script: start&stop_SAP.py -hu
+      ansible.builtin.script: SAP.py -hu
       tags: start
