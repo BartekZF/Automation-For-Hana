@@ -1,0 +1,9 @@
+---
+- name: HANA Start/Stop
+  gather_facts: no
+  hosts: all
+  tasks:
+    - name: Start HANA
+      become: yes
+      ansible.builtin.script: start&stop_SAP.py -hu
+      tags: start
