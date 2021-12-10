@@ -1,0 +1,20 @@
+
+---
+- name: START HANA DB
+  hosts: all
+  tasks:  
+    - name: CHECK IF PYTHON SCRIPT EXIST ON SYSTEM
+      become: true
+      become_user: root
+      shell: find /root -name start_stop_HANA.py 
+      register: path
+
+    - name: Debug
+      debug: msg={{ path }}
+
+    - name: Start HANA 
+      become: true
+      become_user: root
+      shell: PATH=$(find /root -name start_stop_HANA.py) && $PATH
+      when: path.stdout is defined
+
