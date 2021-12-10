@@ -5,9 +5,11 @@
   tasks:
     - name: Start HANA
       become: yes
+      become_user: root
       ansible.builtin.script: SAP.py -hu
       tags: start
       - name: Start HANA
       become: yes
+      become_user: root
       ansible.builtin.script: SAP.py -hd
       tags: stop
