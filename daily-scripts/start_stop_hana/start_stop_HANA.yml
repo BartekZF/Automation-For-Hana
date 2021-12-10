@@ -8,7 +8,7 @@
       become_user: root
       ansible.builtin.script: SAP.py -hu
       tags: start
-      - name: Start HANA
+      - name: Stop HANA
       become: yes
       become_user: root
       ansible.builtin.script: SAP.py -hd
