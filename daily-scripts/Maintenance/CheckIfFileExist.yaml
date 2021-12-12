@@ -11,6 +11,6 @@
       msg: "File exist you can proceed :)"
       when: backup.stat.exist == TRUE
 
-    - name: Message if file exist
+    - name: Message if file doesn't exist
       msg: "Seems like this file not exist :("
       when: backup.stat.exist == FALSE
