@@ -8,9 +8,11 @@
       register: backup
 
     - name: Message if file exist
-      msg: "File exist you can proceed :)"
+      debug:
+        msg: "File exist you can proceed :)"
       when: backup.stat.exist == TRUE
 
     - name: Message if file doesn't exist
-      msg: "Seems like this file not exist :("
+      debug:
+        msg: "Seems like this file not exist :("
       when: backup.stat.exist == FALSE
