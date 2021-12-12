@@ -4,7 +4,7 @@
   tasks:
     - name: 1. Backup! - Backup Option Number Two
       stat:
-        path: { { BACKUP_PATH } }
+        path: "{{ BACKUP_PATH }}"
       register: backup
 
     - name: Message if file exist
