@@ -6,7 +6,7 @@
       stat:
         path: "{{ BACKUP_PATH }}"
       register: backup
-
+    # DEBUG SECTION
     - name: Message if file exist
       debug:
         msg: "File exist you can proceed :)"
