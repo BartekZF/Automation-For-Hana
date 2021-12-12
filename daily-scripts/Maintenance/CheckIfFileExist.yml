@@ -1,0 +1,16 @@
+---
+- name: Task numero uno
+  hosts: all
+  tasks:
+    - name: 1. Backup! - Backup Option Number Two
+      stat:
+        path: { { BACKUP_PATH } }
+      register: backup
+
+    - name: Message if file exist
+      msg: "File exist you can proceed :)"
+      when: backup.stat.exist == TRUE
+
+    - name: Message if file exist
+      msg: "Seems like this file not exist :("
+      when: backup.stat.exist == FALSE
