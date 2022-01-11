@@ -54,7 +54,7 @@
 
     - name: 3.Copy Files
       template:
-        src: "~/templates/configfile.j2"
+        src: "/templates/configfile.j2"
         dest: "{{ HANA_SRC_PATH }}/configfile.cfg"
 ######### DEBUG SECTION #########
 ######### !!!!TEMPL!!!! #########
