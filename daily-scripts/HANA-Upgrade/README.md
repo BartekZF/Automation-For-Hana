@@ -1,13 +1,13 @@
 ####### TO DO #######
 
-### [+] 1. Backup! --> backup.yml
+### [+] 1. Backup! --> preconfig.yml
 
 ### TWO OPTIONS:
 
-        a) User is providing the path where backup is stored, script is only checking if exist. [I WILL GO WITH THIS OPTION] --> Agreeded at team meeting!
+        a) User is providing the path where backup is stored, script is only checking if exist.
         b) Script will make an backup.
 
-### [] 2. Check if files are existing in provided path --> mount.yml
+### [+] 2. Check if files are existing in provided path --> preconfig.yml
 
 ### THREE OPTIONS:
 
@@ -15,15 +15,13 @@
         b) User will provide path for ZIP file. Script will have to unzip the file.
         c) User will provide path for "ready-to-go" folder. Script will only check if necessary files are existing there (HDB_SERVER_LINUX_X64_ARM or HDB_LCM_LINUX, hdblcm ... etc.) [I WILL GO WITH THIS OPTION] ---> Agreeded at team meeting!
 
-### [] 3. Copy configfile from Git to OS level. --> configfile_template.yml // take ec2 instances tags of SID etc.
-
-        Idea is to update the config file and commit it to github/gitlab repository. It can be commited into different branch and after revision from someone else from team it could be marged into to main one and after that it can be used. Different system can have different filename. Configfile template for upgrade should be the same for every system (???)
+### [+] 3. Copy configfile from Git to OS level. --> configfile_template.yml // take ec2 instances tags of SID etc. {What for?}
 
 ### [+] 4. Shutdown SAP. --> stop_SAP.yml
 
 ### [+] 5. Execute installation. --> upgrade_hana.yml
 
-### [] 6. Check version. --> upgrade_hana.yml
+### [-] 6. Post Upgrade Tasks --> post_upgrade.yml
 
 ### [+] 7. Start SAP. --> start_SAP.yml
 
@@ -50,5 +48,5 @@
 
         ###
 
-2.  Disk space free
+2.  Disk free space
 3.  Create yml for reading tags/variables
