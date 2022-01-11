@@ -1,0 +1,9 @@
+---
+- name: SAP Start
+  gather_facts: no
+  hosts: all
+  tasks:
+    - name: Start SAP
+      become: yes
+      become_user: root
+      ansible.builtin.script: python/start_stop_SAP.py -su
