@@ -53,6 +53,8 @@
     #   when: not hana_installation_files.stat.exists
 
     - name: 3.Copy Files
+      become: true
+      become_user: root
       template:
         src: "{{ role_path }}/templates/configfile1.j2"
         dest: "{{ HANA_SRC_PATH }}/configfile.cfg"
