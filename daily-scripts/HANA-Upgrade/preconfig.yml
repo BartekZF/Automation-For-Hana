@@ -13,11 +13,11 @@
     - name: 1.2 Backup --- Create an backup of tenant
       become: true
       become_user: "{{ SID | lower }}adm"
-      shell: whoami >> {{ BACKUP_PATH }}/log.txt
-      #shell: /usr/sap/{{ SID }}/HDB{{ INST_NR }}/exe/hdbsql -i {{ INST_NR }} -u SYSTEM -p {{ SYS_USER_PASSWORD }} -d {{ SID }} "BACKUP DATA USING FILE ('{{ BACKUP_PATH }}/COMPLETE_DATA_BACKUP_TENANT_$(date '+%Y.%m.%d-%H:%M:%S')')"
+      shell: /usr/sap/{{ SID }}/HDB{{ INST_NR }}/exe/hdbsql -i {{ INST_NR }} -u SYSTEM -p {{ SYS_USER_PASSWORD }} -d {{ SID }} "BACKUP DATA USING FILE ('{{ BACKUP_PATH }}/COMPLETE_DATA_BACKUP_TENANT_$(date '+%Y.%m.%d-%H:%M:%S')')"
     - name: 1.3 Backup --- Create an backup of systemdb
-      shell: whoami >> {{ BACKUP_PATH }}/log.txt
-      #shell: /usr/sap/{{ SID }}/HDB{{ INST_NR }}/exe/hdbsql -i {{ INST_NR }} -u SYSTEM -p {{ SYS_USER_PASSWORD }} -d SYSTEMDB "BACKUP DATA USING FILE ('{{ BACKUP_PATH }}/COMPLETE_DATA_BACKUP_SYSTEMDB_$(date '+%Y.%m.%d-%H:%M:%S')')"
+      become: true
+      become_user: "{{ SID | lower }}adm"
+      shell: /usr/sap/{{ SID }}/HDB{{ INST_NR }}/exe/hdbsql -i {{ INST_NR }} -u SYSTEM -p {{ SYS_USER_PASSWORD }} -d SYSTEMDB "BACKUP DATA USING FILE ('{{ BACKUP_PATH }}/COMPLETE_DATA_BACKUP_SYSTEMDB_$(date '+%Y.%m.%d-%H:%M:%S')')"
     - name: 1.4 Backup --- Checking if its existing #TO IMPROVE
       stat:
         path: "{{ BACKUP_PATH }}"
