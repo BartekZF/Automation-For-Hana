@@ -54,7 +54,7 @@
 
     - name: 3.Copy Files
       template:
-        src: "/home/bartek/Documents/git/ZF/HANA Upgrade/tasks/templates/configfile.j2"
+        src: "~/templates/configfile.j2"
         dest: "{{ HANA_SRC_PATH }}/configfile.cfg"
 ######### DEBUG SECTION #########
 ######### !!!!TEMPL!!!! #########
