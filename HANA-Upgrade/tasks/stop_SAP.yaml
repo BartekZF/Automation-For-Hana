@@ -1,0 +1,9 @@
+---
+- name: HANA Stop
+  gather_facts: no
+  hosts: all
+  tasks:
+    - name: Start HANA
+      become: yes
+      become_user: root
+      ansible.builtin.script: python/start_stop_SAP.py -sd

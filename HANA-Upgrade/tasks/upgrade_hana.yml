@@ -1,0 +1,12 @@
+---
+- name: Task numero Zwei
+  hosts: all
+  become_user: root
+  tasks:
+    - name: 4. Process HANA Installation
+      command: "./hdblcm --configfile={{ HANA_SRC_PATH }}/configfile.cfg -b"
+      args:
+        chdir: "{{ HANA_SRC_PATH }}"
+    - name: Result message
+      debug:
+        msg: Your installation were sucesfull :)
