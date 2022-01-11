@@ -5,7 +5,6 @@
   tasks:
     - name: 1.1 Backup --- Create folder for backup
       become: true
-      become_user: root
       file:
         path: "{{ BACKUP_PATH }}"
         state: directory
