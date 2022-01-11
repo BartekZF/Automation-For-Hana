@@ -1,0 +1,62 @@
+---
+- name: Preconfig stuff before upgrade
+  hosts: all
+  remote_user: "{{ SID | lower }}adm"
+  tasks:
+    - name: 1.1 Backup --- Create folder for backup
+      file:
+        path: "{{ BACKUP_PATH }}"
+        state: directory
+        owner: "{{ SID | lower }}adm"
+        group: sapsys
+        mode: 0750
+
+    # - name: 1.3 Backup --- Create an backup of tenant
+    #   shell: /usr/sap/{{ SID }}/HDB{{ INST_NR }}/exe/hdbsql -i {{ INST_NR }} -u SYSTEM -p {{ SYS_USER_PASSWORD }} -d {{ SID }} "BACKUP DATA USING FILE ('{{ BACKUP_PATH }}/COMPLETE_DATA_BACKUP_TENANT_$(date '+%Y.%m.%d-%H:%M:%S')')"
+    # - name: 1.4 Backup --- Create an backup of systemdb
+    #   shell: /usr/sap/{{ SID }}/HDB{{ INST_NR }}/exe/hdbsql -i {{ INST_NR }} -u SYSTEM -p {{ SYS_USER_PASSWORD }} -d SYSTEMDB "BACKUP DATA USING FILE ('{{ BACKUP_PATH }}/COMPLETE_DATA_BACKUP_SYSTEMDB_$(date '+%Y.%m.%d-%H:%M:%S')')"
+    # - name: 1.5 Backup --- Checking if its existing #TO IMPROVE
+    #   stat:
+    #     path: "{{ BACKUP_PATH }}"
+    #   register: backup
+
+    #   ######### DEBUG SECTION #########
+    # - name: Message if backup exist
+    #   debug:
+    #     msg: "File exist you can proceed :)"
+    #   when: backup.stat.exists
+    # - name: Message if file doesn't exist
+    #   debug:
+    #     msg: "Seems like there is not such file :("
+    #   when: not backup.stat.exists
+    #   #################################
+    # - name: 1.6 Backup --- Message if backup is not existing
+    #   fail: msg="THERE IS NO BACKUP ... NOT NICE! GO BACK AND CREATE ONE"
+    #   when: not backup.stat.exists
+
+    # - name: 2. HANA installation files
+    #   stat:
+    #     path: "{{ HANA_SRC_PATH }}"
+    #   register: hana_installation_files
+    #   ######### DEBUG SECTION #########
+    # - name: Message if hana installation exist
+    #   debug:
+    #     msg: "HANA Installation files exist you can proceed :)"
+    #   when: hana_installation_files.stat.exists
+    # - name: Message if hana installation not exist
+    #   debug:
+    #     msg: "Seems like there is not such folder :("
+    #   when: not hana_installation_files.stat.exists
+    #   #################################
+    # - name: 2.1 HANA Installation files --- Message if there are not existing
+    #   fail: msg="THERE IS NO HANA INSTALLATION FILES ... NOT NICE!"
+    #   when: not hana_installation_files.stat.exists
+
+    - name: 3.Copy Files
+      template:
+        src: "/home/bartek/Documents/git/ZF/HANA Upgrade/tasks/templates/configfile.j2"
+        dest: "{{ HANA_SRC_PATH }}/configfile.cfg"
+######### DEBUG SECTION #########
+######### !!!!TEMPL!!!! #########
+#################################
+

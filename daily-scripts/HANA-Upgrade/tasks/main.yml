@@ -1,0 +1,8 @@
+---
+- name: HANA Preconfig
+  import_playbook: preconfig.yml
+#- import_task: stop_HANA.yaml
+- name: HANA Upgrade process
+  import_playbook: upgrade_hana.yml
+#- import_task: post_upgrade.yml
+#- import_task: start_SAP.yml
