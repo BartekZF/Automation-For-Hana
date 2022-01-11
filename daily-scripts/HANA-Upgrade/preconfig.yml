@@ -4,7 +4,6 @@
   remote_user: "{{ SID | lower }}adm"
   tasks:
     - name: 1.1 Backup --- Create folder for backup
-      become: true
       file:
         path: "{{ BACKUP_PATH }}"
         state: directory
