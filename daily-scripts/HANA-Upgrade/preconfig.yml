@@ -60,7 +60,10 @@
       become_user: root
       template:
         src: "{{ role_path }}/templates/configfile1.j2"
-        dest: "{{ HANA_SRC_PATH }}/configfile.cfg"
+        dest: "{{ HANA_SRC_PATH }}/configfile.cfg" # {{SID | lower}}} to file
+
+
+    # check the free space on host
 ######### DEBUG SECTION #########
 ######### !!!!TEMPL!!!! #########
 #################################
